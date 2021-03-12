@@ -81,7 +81,7 @@ export function ifc2json(
       // tslint:disable-next-line: variable-name
       (err, _stdout, stderr) => {
         if (err) {
-          debug('Error: ', err.message);
+          debug('Error', err.code, ':', err.message);
           if (err.code === 1) {
             reject(new Error('Error 1: Invalid file format'));
           } else if (err.code === 2) {
@@ -89,7 +89,7 @@ export function ifc2json(
           } else if (err.code === 3) {
             reject(new Error('Error 3: Encoding error'));
           } else {
-            reject(new Error(`Error ${err.code}: General Error`));
+            reject(new Error(`Error ${err.code}: General Error; ${err.message}`));
           }
         } else if (stderr.length > 0) {
           debug('StdError: ', stderr.toString());
