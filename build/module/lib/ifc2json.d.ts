@@ -9,6 +9,8 @@ export interface Ifc2JsonOptions {
     readonly destination?: string;
     readonly replaceExistingFile?: boolean;
     readonly path?: string;
+    stdout?: string;
+    stderr?: string;
 }
 /**
  * Wrapper for ConvertIfc2Json command.

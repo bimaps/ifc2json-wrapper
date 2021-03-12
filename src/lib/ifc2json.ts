@@ -14,6 +14,8 @@ export interface Ifc2JsonOptions {
   readonly destination?: string;
   readonly replaceExistingFile?: boolean;
   readonly path?: string;
+  stdout?: string;
+  stderr?: string
 }
 
 /**
@@ -79,7 +81,13 @@ export function ifc2json(
       args,
       { maxBuffer: 1024 * 2000 },
       // tslint:disable-next-line: variable-name
-      (err, _stdout, stderr) => {
+      (err, stdout, stderr) => {
+        if (options?.stdout) {
+          options.stdout = stdout;
+        }
+        if (options?.stderr) {
+          options.stderr = stderr;
+        }
         if (err) {
           debug('Error', err.code, ':', err.message);
           if (err.code === 1) {
