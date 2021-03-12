@@ -83,11 +83,13 @@ export function ifc2json(
         if (err) {
           debug('Error: ', err.message);
           if (err.code === 1) {
-            reject(new Error('Invalid file format'));
+            reject(new Error('Error 1: Invalid file format'));
           } else if (err.code === 2) {
-            reject(new Error('Invalid filename'));
+            reject(new Error('Error 2: Invalid filename'));
+          } else if (err.code === 3) {
+            reject(new Error('Error 3: Encoding error'));
           } else {
-            reject(new Error('Unkown Error'));
+            reject(new Error(`Error ${err.code}: General Error`));
           }
         } else if (stderr.length > 0) {
           debug('StdError: ', stderr.toString());
