@@ -5,9 +5,6 @@
   "main": "build/main/index.js",
   "typings": "build/main/index.d.ts",
   "module": "build/module/index.js",
-  "repository": "https://github.com/ben-girardet/ifc2json-wrapper",
-  "license": "MIT",
-  "keywords": [],
   "scripts": {
     "describe": "npm-scripts-info",
     "build": "run-s clean && run-p build:*",
@@ -46,6 +43,13 @@
     "reset": "Delete all untracked files and reset the repo to the last commit",
     "prepare-release": "One-step: clean, build, test, publish docs, and prep a release"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bimaps/ifc2json-wrapper"
+  },
+  "keywords": ["ThreeJS", "BIM", "IFC"],
+  "author": "platform5",
   "engines": {
     "node": ">=8.9"
   },

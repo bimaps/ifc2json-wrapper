@@ -12,3 +12,6 @@ build/docs
 coverage
 .nyc_output
 *.log
+docs
+node_modules
+typedoc.json
